@@ -1,0 +1,48 @@
+package com.ict.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Ex01")
+public class Ex01 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+    public Ex01() {
+    	System.out.println("생성자()");
+    }
+
+	
+	public void init(ServletConfig config) throws ServletException {
+		System.out.println("init()");
+	}
+	
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("service()");
+		if(request.getMethod().equalsIgnoreCase("get")) {
+			doGet(request, response);
+		}else if(request.getMethod().equalsIgnoreCase("post")) {
+			doPost(request, response);
+		}
+	}
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("get()");
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("post()");
+		// doGet(request, response);
+	}
+	// 맨마지막 배치
+	public void destroy() {
+		System.out.println("destory()");
+	}
+}

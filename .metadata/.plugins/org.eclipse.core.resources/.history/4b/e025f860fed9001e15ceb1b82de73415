@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	fieldset {
+		width: 600px;
+		height: 400px;
+	}
+</style>
+<script type="text/javascript">
+	function f.send_go(f) {
+		// form 에 action이 없으면
+		let name = f.userName.value;
+		if(name === ''){
+			alert("이름을 입력하세요");
+			f.userName.focus();
+			return; // 자기를 호출할놈한테 간다.
+		}
+		f.action = "/01_servlet/Ex06";
+		f.submit();
+	}
+</script>
+</head>
+<body>
+	<form  method="get">
+	<fieldset>
+		<legend>계산기</legend>
+		<p>수1 : <input type="number" name="su1" required>
+		<p>수2 : <input type="number" name="su2" required>
+		<p class="a1">연산자 : <input type="radio"> + <input type="radio" >-<input type="radio" >*<input type="radio" >/</p>
+		<p><input type="button" value="결과보기" onclick="f.send_go()"></p>
+	</fieldset>
+	</form>
+	<fieldset>
+		<legend>계산기</legend>
+	</fieldset>
+</body>
+</html>
